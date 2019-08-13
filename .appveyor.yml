@@ -35,6 +35,7 @@ install:
 
 before_test:
   - cd C:\projects\cache-wincache
+  - php C:\tools\composer.phar config -g -- disable-tls true
   - php C:\tools\composer.phar update --no-interaction --no-progress --prefer-stable --no-ansi
 
 test_script:

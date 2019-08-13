@@ -25,6 +25,7 @@ install:
   - echo memory_limit=512M >> php.ini
   - echo extension_dir=ext >> php.ini
   - echo extension=php_mbstring.dll >> php.ini
+  - echo extension=php_openssl.dll >> php.ini
   - echo extension=php_wincache.dll >> php.ini
   - echo wincache.enablecli=1 >> php.ini
   - IF NOT EXIST C:\tools\composer.phar (cd C:\tools && appveyor DownloadFile https://getcomposer.org/download/1.4.1/composer.phar)
@@ -35,7 +36,6 @@ install:
 
 before_test:
   - cd C:\projects\cache-wincache
-  - php C:\tools\composer.phar config -g -- disable-tls true
   - php C:\tools\composer.phar update --no-interaction --no-progress --prefer-stable --no-ansi
 
 test_script:

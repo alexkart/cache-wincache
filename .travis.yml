@@ -1,8 +1,6 @@
-language: php
+os: windows
 
-php:
-  - '7.2'
-  - '7.3'
+language: sh
 
 # faster builds on new travis setup not using sudo
 sudo: false
@@ -11,6 +9,10 @@ sudo: false
 cache:
   directories:
     - $HOME/.composer/cache
+
+before_install:
+  - choco install php
+  - export PATH=/c/tools/php72:$PATH
 
 install:
   - travis_retry composer self-update && composer --version

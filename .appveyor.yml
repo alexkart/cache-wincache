@@ -26,6 +26,8 @@ install:
   - echo extension_dir=ext >> php.ini
   - echo extension=php_mbstring.dll >> php.ini
   - echo extension=php_openssl.dll >> php.ini
+  - echo extension=php_curl.dll >> php.ini
+  - echo extension=php_fileinfo.dll >> php.ini
   - echo extension=php_wincache.dll >> php.ini
   - echo wincache.enablecli=1 >> php.ini
   - IF NOT EXIST C:\tools\composer.phar (cd C:\tools && appveyor DownloadFile https://getcomposer.org/download/1.4.1/composer.phar)
@@ -40,4 +42,4 @@ before_test:
 
 test_script:
   - cd C:\projects\cache-wincache
-  - php vendor\bin\phpunit
+  - vendor\bin\phpunit

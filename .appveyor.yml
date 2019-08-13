@@ -20,7 +20,6 @@ install:
   - ps: Set-Service wuauserv -StartupType Manual
   - IF NOT EXIST C:\tools\php (choco install --yes --allow-empty-checksums php --version %php_ver% --params '/InstallDir:C:\tools\php')
   - cd C:\tools\php
-  - dir
   - copy php.ini-production php.ini
   - echo date.timezone="UTC" >> php.ini
   - echo memory_limit=512M >> php.ini
@@ -36,8 +35,6 @@ install:
 
 before_test:
   - cd C:\projects\cache-wincache
-  - echo %cd%
-  - copy tests\appveyor\php_wincache.dll C:\tools\php\ext\php_wincache.dll
   - php C:\tools\composer.phar update --no-interaction --no-progress --prefer-stable --no-ansi
 
 test_script:

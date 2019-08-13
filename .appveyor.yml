@@ -40,4 +40,4 @@ before_test:
 
 test_script:
   - cd C:\projects\cache-wincache
-  - vendor\bin\phpunit --configuration C:\projects\cache-wincache\phpunit.xml.dist C:\projects\cache-wincache\tests
+  - vendor\bin\phpunit C:\projects\cache-wincache\tests

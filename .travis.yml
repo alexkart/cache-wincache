@@ -12,7 +12,8 @@ cache:
 
 before_install:
   - choco install php
-  - export PATH=/c/tools/php72:$PATH
+  - export PATH=/c/tools/php73:$PATH
+  - choco install composer
 
 install:
   - travis_retry composer self-update && composer --version

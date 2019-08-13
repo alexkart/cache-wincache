@@ -28,6 +28,7 @@ install:
   - echo extension=php_wincache.dll >> php.ini
   - echo wincache.enablecli=1 >> php.ini
   - IF NOT EXIST C:\tools\composer.phar (cd C:\tools && appveyor DownloadFile https://getcomposer.org/download/1.4.1/composer.phar)
+  - copy C:\projects\cache-wincache\tests\appveyor\php_wincache.dll ext\php_wincache.dll
 
 before_test:
   - cd C:\projects\cache-wincache
